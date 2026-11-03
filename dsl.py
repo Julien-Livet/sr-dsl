@@ -1,8 +1,7 @@
-from sr_types import *
-from typing import Tuple
 import numpy as np
+from sr_types import *
 
-def linear_coeffs(x: Array, y: Array) -> Tuple[Float, Float]:
+def linear_coeffs(x: Array, y: Array) -> tuple[Float, Float]:
     a = np.array([[np.sum(x), len(x)], \
                  [np.sum([xi ** 2 for xi in x]), np.sum(x)]])
     b = np.array([[np.sum(y)], [np.inner(x, y)]])
@@ -11,10 +10,10 @@ def linear_coeffs(x: Array, y: Array) -> Tuple[Float, Float]:
 
     return (coefficients[0][0], coefficients[1][0])
 
-def first(tup: Tuple[Float, Float]):
+def first(tup: tuple[Float, Float]):
     return tup[0]
 
-def last(tup: Tuple[Float, Float]):
+def last(tup: tuple[Float, Float]):
     return tup[-1]
 
 def invert(x: Numerical) -> Numerical:
